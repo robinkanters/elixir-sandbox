@@ -12,6 +12,6 @@ defmodule Quicksort do
     below = t |> Enum.filter &(&1 <= h)
     above = t |> Enum.filter &(&1 > h)
 
-    quicksort(below) ++ [h] ++ quicksort(above)
+    quicksort(below) ++ [h | quicksort(above)]
   end
 end
