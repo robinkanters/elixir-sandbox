@@ -6,6 +6,10 @@ defmodule MergesortTest do
   end
 
   test "sort returns sorted list when given reversed list" do
+    assert [1, 2, 3, 4, 5] == Mergesort.sort([4, 3, 5, 2, 1])
+  end
+
+  test "sort returns sorted list when given odd length list" do
     assert [1, 2, 3, 4] == Mergesort.sort([4, 3, 2, 1])
   end
 
