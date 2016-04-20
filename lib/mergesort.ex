@@ -13,9 +13,14 @@ defmodule Mergesort do
   def merge([], right) do right end
   def merge(left, []) do left end
   def merge(left, right) do
-    cond do
-      hd(left) <= hd(right) -> [hd(left) | merge(tl(left), right)]
-      true -> [hd(right) | merge(left, tl(right))]
-    end
+    _merge(hd(left) <= hd(right), left, right)
+  end
+
+  defp _merge(true, left, right) do
+    [hd(left) | merge(tl(left), right)]
+  end
+
+  defp _merge(_, left, right) do
+    [hd(right) | merge(left, tl(right))]
   end
 end
